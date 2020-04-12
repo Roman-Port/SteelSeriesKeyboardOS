@@ -23,6 +23,7 @@ namespace KeyboardOS
         public event KeyboardOSInputArgs KeyboardOSInputEvent;
 
         private InputKey? queuedKey;
+        private int videoFrame = -1; //Used for recording. Set to 0 to begin, -1 to stop
 
         public OSInstance()
         {
@@ -114,6 +115,14 @@ namespace KeyboardOS
             apps[apps.Count - 1].OnAppTicked();
             frame.DrawView();
             connection.UpdateDisplay(frame);
+
+            //Write video
+            if(videoFrame >= 0)
+            {
+                using (FileStream fs = new FileStream("D:\\test\\" + videoFrame + ".png", FileMode.Create))
+                    frame.GetScreenshotData().Save(fs, new SixLabors.ImageSharp.Formats.Png.PngEncoder());
+                videoFrame++;
+            }
         }
 
         public void Run()

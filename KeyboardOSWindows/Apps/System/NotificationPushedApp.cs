@@ -18,7 +18,7 @@ namespace KeyboardOS.Apps.System
             {
                 app_name = "Discord",
                 title = "RomanPort",
-                subtext = "No matter how many times I deactivate McAfee and refuse to subscribe, it still insists on emerging from the depths and scanning every download I make",
+                subtext = "This is an example of what notifications can show. They can also be multiline, and show a black and white representation of the user's profile picture. Cool!",
                 icon_url = "https://cdn.discordapp.com/avatars/235392678920060928/f7f0075ee119e53fa6d03bb1e322cfbc.png"
             };
         }
